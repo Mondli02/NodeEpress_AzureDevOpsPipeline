@@ -10,7 +10,6 @@ stages:
    - job: BuildFirstJob
      steps:
       - bash: echo build FirstJob
-      - bash: $(PipeLineLevelVariable)
    - job: BuildSecondJob
      steps:
       - bash: echo build SecondJob
@@ -21,7 +20,7 @@ stages:
   jobs:
     - job: DevDeployJob
       steps:
-      - bash: echo DevDeployJob
+      - bash: echo $(environment)DeployJob
 - stage: QADeploy
   dependsOn: 
    Build
